@@ -14,11 +14,11 @@
         <h1>Welcome!</h1>
         <h2> Please LOGIN / REGISTER<br/>TO CONTINUE</h2>
         
-        <form action="/temperatureControl/login.php" method="get" id="form1">
+        <form action="/TemperatureControl/login/temperatureControl/login.php" method="get" id="form1">
         <button class="buttonLogin">Login</button>
     	</form>
     	<br>
-    	<form action="/temperatureControl/register.php" method="get" id="form2">
+    	<form action="/TemperatureControl/login/temperatureControl/register.php" method="get" id="form2">
         <button class="buttonRegister">Register</button>
     	</form>
 
