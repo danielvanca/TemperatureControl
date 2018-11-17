@@ -8,12 +8,16 @@ $result = mysqli_query($conn, $mysql_query);
 
 if ($result->num_rows > 0)
 {
-	echo "readTemperature: " . $rows["readTemperature"]. "<br>";
+	 while($row = $result->fetch_assoc())
+	 {
+	 	echo "readTemperature: " . $row["readTemperature"]. "<br>";
+	 }	
+	
 }
 else
 {
 	echo "0 results";
 }
-conn->close();
+$conn->close();
 
 ?>
