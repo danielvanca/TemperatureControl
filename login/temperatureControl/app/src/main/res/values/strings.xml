@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Temperature Control</string>
+    <string name="welcome">Welcome!
+    Please Login or Register to continue!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="temperatureRead"></string>
+    <string name="degreeC">°C</string>
+    <string name="getTemperature">GET CURRENT TEMPERATURE</string>
+    <string name="setTemperature">SET DESIRED TEMPERATURE</string>
+    <string name="desiredTemperature">Enter Desired Temperature</string>
+</resources>
