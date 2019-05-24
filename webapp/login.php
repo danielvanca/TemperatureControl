@@ -14,7 +14,7 @@
         <h1>Welcome!</h1>
         <h2> Please enter your username and password!</h2>
         
-        <form action="/TemperatureControl/login/temperatureControl/loginCompleted.php" method="post">
+        <form action="/TemperatureControl/webapp/loginCompleted.php" method="post">
             <div class="container">
                 <hr>
 
