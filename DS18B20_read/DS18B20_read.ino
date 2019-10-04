@@ -8,13 +8,14 @@
 OneWire oneWire(ONE_WIRE_BUS); 
 DallasTemperature sensors(&oneWire);
 unsigned long previousMillis = 0;        // will store last time LED was updated
-const long interval = 3600; 
+const long interval = 5000; 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 IPAddress ip(192,168,1,10);
 IPAddress server(192,168,1,6);
 EthernetClient client;
 float temp = 0;
 String data = "";
+char c;
 
 void setup(void) 
 { 
@@ -39,15 +40,21 @@ void loop(void)
           {
               Serial.println("-> Connected");
               // Make a HTTP request:
-              client.print( "GET /add.php?readTemperature=");
+              client.print("GET /TemperatureControl/add.php?readTemperature=");
               client.println(data);
               client.println(" HTTP/1.1");
               client.print( "Host: " );
               client.print(server);
               client.println();
-              Serial.println( "Connection: close" );
-              Serial.println();
+
+//              client.print("GET /TemperatureControl/read.php");
+//              client.println(" HTTP/1.1");
+//              client.print( "Host: " );
+//              client.print(server);
+//              client.println();
+
               client.stop();
+              
         }
         else
         {
@@ -56,4 +63,5 @@ void loop(void)
       
     }
 }
+
 
