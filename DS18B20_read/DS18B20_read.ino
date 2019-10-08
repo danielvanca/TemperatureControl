@@ -16,12 +16,42 @@ EthernetClient client;
 float temp = 0;
 String data = "";
 char c;
+char response[5];
+String setPoint = "";
+float setPointTemp = 0;
+int i = 0;
 
 void setup(void) 
 { 
  Serial.begin(9600); 
  sensors.begin(); 
  Ethernet.begin(mac);
+ delay(1000);
+  if (client.connect(server, 80)) 
+  {
+     client.println("GET /TemperatureControl/read.php?temperatureSetPoint");
+     client.println(" HTTP/1.1");
+     client.print( "Host: " );
+     client.print(server);
+     client.println();             
+     while(client.available() || client.connected())
+     {
+      c = client.read();
+      if(int(c) >= 46 && int(c) <= 57)
+      {
+        Serial.println(c);
+        response[i] = c;
+        i++;
+      }
+     }
+  }
+  else
+  {
+    Serial.println("Connection failed!");
+  }
+  client.stop();
+   setPoint = String(response);
+   Serial.println(setPoint);
 } 
 void loop(void) 
 { 
@@ -32,10 +62,20 @@ void loop(void)
       sensors.requestTemperatures(); // Send the command to get temperature readings 
       Serial.print("Temperature is: "); 
       temp = sensors.getTempCByIndex(0);
-      Serial.println(temp); 
+      Serial.println(temp);
+      setPointTemp = atof(response);
+      Serial.println(setPointTemp);
+      if(setPointTemp < temp + 0.5)
+      {
+        Serial.println("Heat open");
+      }
+      else
+      {
+        Serial.println("Heat closed");
+      }
       data = String(temp);
       Serial.print(server);
-
+      Serial.println(setPoint);
           if (client.connect(server, 80)) 
           {
               Serial.println("-> Connected");
@@ -45,22 +85,13 @@ void loop(void)
               client.println(" HTTP/1.1");
               client.print( "Host: " );
               client.print(server);
-              client.println();
-
-//              client.print("GET /TemperatureControl/read.php");
-//              client.println(" HTTP/1.1");
-//              client.print( "Host: " );
-//              client.print(server);
-//              client.println();
-
+              client.println();             
               client.stop();
-              
         }
         else
         {
               Serial.println("--> connection failed/n");
         }
-      
     }
 }
 
