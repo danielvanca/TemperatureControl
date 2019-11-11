@@ -10,7 +10,7 @@
 </head>
 
 <body>
-        <form action="register2.php" method="post">
+        <form action="registerCompleted.php" method="post">
             <div class="container">
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>
