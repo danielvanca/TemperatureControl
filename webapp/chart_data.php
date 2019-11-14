@@ -11,7 +11,7 @@
       die("Connection failed: " . $conn->connect_error);
     }
 
-    $query = "SELECT readTemperature, dateTime FROM sensors";
+    $query = "SELECT TOP 100 sreadTemperature, dateTime FROM sensors";
     $result = $conn->query($query);
 
     $jsonArray = array();
