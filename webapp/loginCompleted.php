@@ -64,11 +64,8 @@ if (isset($_SESSION['user']))
     echo "<p style='color:green;font-size:24px'> Hi " . $user . " !</p> ";
     echo "<p style='color:blue;font-size:24px'> This is your profile! </p>";
     echo "</br></br> <a href='chart.html'>Temperature Readings from Sensors</a>";
-    echo "</br></br> <a href='logout.php'>Logout</a>";
-
-  
-  
- 
+    echo "</br></br> <a href='chart2.html'>Temperature Set Points</a>";
+    echo "</br></br> <a href='logout.php'>Logout</a>"; 
 }
 else
 {
