@@ -11,7 +11,7 @@
       die("Connection failed: " . $conn->connect_error);
     }
 
-    $query = "SELECT readTemperature, dateTime FROM sensors LIMIT 25";
+    $query = "SELECT temperatureSetPoint, dateTime FROM setpoints LIMIT 25";
     $result = $conn->query($query);
 
     $jsonArray = array();
@@ -22,7 +22,7 @@
       {
         $jsonArrayItem = array();
         $jsonArrayItem['label'] = $row['dateTime'];
-        $jsonArrayItem['value'] = $row['readTemperature'];
+        $jsonArrayItem['value'] = $row['temperatureSetPoint'];
         array_push($jsonArray, $jsonArrayItem);
       }
     }
