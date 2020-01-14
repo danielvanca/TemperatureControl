@@ -1,6 +1,4 @@
 <?php
-    
-      
     include 'config.php';
 
     if (!$db) {
@@ -34,7 +32,7 @@
 <body>
     <div id="login">
         <h1>Account created succesfully!!</h1>
-        <h2> </br> <a href=/TemperatureControl/login/temperatureControl/index.php> Home </a> </h2>
+        <h2> </br> <a href=/TemperatureControl/webapp/index.php> Home </a> </h2>
     </div>
 </body>
 

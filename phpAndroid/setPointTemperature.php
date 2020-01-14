@@ -2,7 +2,9 @@
 
 require "conn2.php";
 
-$setpoint = $_POST['setPoint'];
+
+ $setpoint = $_POST['setPoint'];
+
 
 $mysql_query = "INSERT INTO setpoints (temperatureSetPoint, dateTime) VALUES ($setpoint, CURRENT_TIMESTAMP)";
 

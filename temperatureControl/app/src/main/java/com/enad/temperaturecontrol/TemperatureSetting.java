@@ -37,7 +37,7 @@ public class TemperatureSetting extends AppCompatActivity
     Button button, button2;
     EditText setPoint;
     String TempSetPoint;
-    String ServerURL = "http://10.0.2.2/TemperatureControl/login/setPointTemperature.php" ;
+    String ServerURL = "http://10.0.2.2/TemperatureControl/phpAndroid/setPointTemperature.php" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -90,7 +90,7 @@ public class TemperatureSetting extends AppCompatActivity
             try
             {
                 // Enter URL address where your php file resides
-                url = new URL("http://10.0.2.2/TemperatureControl/login/getTemperature.php");
+                url = new URL("http://10.0.2.2/TemperatureControl/phpAndroid/getTemperature.php");
             }
             catch (MalformedURLException e)
             {

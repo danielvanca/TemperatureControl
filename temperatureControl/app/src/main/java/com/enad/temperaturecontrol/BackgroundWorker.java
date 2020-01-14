@@ -29,8 +29,8 @@ public class BackgroundWorker extends AsyncTask<String, Void, String>
     protected String doInBackground(String... params)
     {
         String type = params[0];
-        String login_url = "http://10.0.2.2/TemperatureControl/login/login.php";
-        String register_url = "http://10.0.2.2/TemperatureControl/login/register.php";
+        String login_url = "http://10.0.2.2/TemperatureControl/phpAndroid/login.php";
+        String register_url = "http://10.0.2.2/TemperatureControl/phpAndroid/register.php";
 
 
         if (type.equals("login"))

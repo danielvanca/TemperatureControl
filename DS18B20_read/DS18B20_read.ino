@@ -1,17 +1,17 @@
-#include <OneWire.h> 
 #include <DallasTemperature.h>
+#include <OneWire.h> 
 #include <Ethernet.h>
 #include <SPI.h>
 
 
-#define ONE_WIRE_BUS 2 
+#define ONE_WIRE_BUS 2
 OneWire oneWire(ONE_WIRE_BUS); 
 DallasTemperature sensors(&oneWire);
 unsigned long previousMillis = 0;        // will store last time LED was updated
 const long interval = 5000; 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 IPAddress ip(192,168,1,10);
-IPAddress server(192,168,1,6);
+IPAddress server(192,168,1,4);
 EthernetClient client;
 float temp = 0;
 String data = "";
@@ -24,6 +24,7 @@ int i = 0;
 void setup(void) 
 { 
  Serial.begin(9600); 
+ Serial.println("hello");
  sensors.begin(); 
  Ethernet.begin(mac);
  delay(1000);
@@ -94,5 +95,3 @@ void loop(void)
         }
     }
 }
-
-
